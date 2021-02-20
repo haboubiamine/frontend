@@ -5,6 +5,7 @@ import {setLoginStatus} from './../redux/actions/authAction';
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import logo from './../images/logo_transparent.png'
 
 
 
@@ -12,14 +13,13 @@ function Login() {
 	
   
     const singIN = () =>{
-			$('#container').removeClass('right-panel-active');
-			
+			$('#container').removeClass('right-panel-active');		
     }
     const singUP = () =>{
-			$('#container').addClass('right-panel-active');
-			
+			$('#container').addClass('right-panel-active');		
     }
-	
+
+
 	const dispatch = useDispatch();
  	const dispatchState = (token,user) => dispatch(setLoginStatus(token, user));
 
@@ -32,7 +32,8 @@ function Login() {
 	name :"",
 	lastname:"",
 	email:"",
-	password:""
+	password:"",
+	phone : ""
  })
 
 
@@ -64,6 +65,13 @@ const setlastname = e => {
 	setsingupinfo(prevState => ({
 		...prevState,
 		lastname: e.target.value
+	}));
+};
+
+const setphone = e => {
+	setsingupinfo(prevState => ({
+		...prevState,
+		phone: e.target.value
 	}));
 };
 
@@ -102,7 +110,7 @@ const setsingup_password = e => {
     if (response.status === 200) {
         dispatchState(response.data.token,JSON.stringify(response.data.user));
         window.setTimeout(() => {
-            window.location.replace("/Home");
+            window.location.replace("/");
           }, 1500);
     }
     })
@@ -173,33 +181,38 @@ const setsingup_password = e => {
 	<div className="form-container sign-up-container">
 		<form >
 			<h1>Create Account</h1>
-			<input type="text" placeholder="Name"
+			<input className="mb-3" type="text" placeholder="Name"
 			value={singupinfo.name}
 			onChange={setname}
 			required
 			 />
-			<input type="text" placeholder="LastName" 
+			<input className="mb-3" type="text" placeholder="LastName" 
 			value={singupinfo.lastname}
 			onChange={setlastname}
 			required
 			/>
-			<input type="email" placeholder="Email" 
+			<input className="mb-3" type="text" placeholder="phone"
+			value={singupinfo.phone}
+			onChange={setphone}
+			required
+			 />
+			<input className="mb-3" type="email" placeholder="Email" 
 			value={singupinfo.email}
 			onChange={setsingup_email}
 			required
 			/>
-			<input type="password" placeholder="Password" 
+			<input className="mb-3" type="password" placeholder="Password" 
 			value={singupinfo.password}
 			onChange={setsingup_password}
 			required
 			/>
-			<button onClick={handelsingup}>Sign Up</button>
+			<button className="grow" onClick={handelsingup}>Sign Up</button>
 		</form>
 	</div>
 	<div className="form-container sign-in-container">
 		<form >
 			<h1>Sign in</h1>
-			<input type="email" placeholder="Email"
+			<input className="mb-3" type="email" placeholder="Email"
 				value={logininfo.email}
 				onChange={setemail}
 				required={true}
@@ -209,21 +222,22 @@ const setsingup_password = e => {
 				onChange={setpassword}
 				required={true}
 			 />
-			<p>Forgot your password?</p>
-			<button onClick={handellogin}>Sign In</button>
+			<button className="grow mt-3" onClick={handellogin}>Sign In</button>
 		</form>
 	</div>
 	<div className="overlay-container">
 		<div className="overlay">
 			<div className="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
+				{/* <h1>Welcome Back!</h1> */}
+				<img src={logo} style={{width : 250 , height :100 , marginBottom :25}}/>
 				<p>To keep connected with us please login with your personal info</p>
-				<button className="ghost" id="signIn" onClick={singIN}>Sign In</button>
+				<button className="ghost grow" id="signIn" onClick={singIN}>Sign In</button>
 			</div>
 			<div className="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
+				{/* <h1>Palmyra Hotel</h1> */}
+					<img src={logo} style={{width : 250 , height :100 , marginBottom :25}}/>	
 				<p>Enter your personal details and start journey with us</p>
-				<button className="ghost" id="signUp" onClick={singUP}>Sign Up</button>
+				<button className="ghost grow"  id="signUp" onClick={singUP}>Sign Up</button>
 			</div>
 		</div>
 	</div>

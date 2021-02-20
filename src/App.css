@@ -51,7 +51,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 90vh;
 	width: 100%;
-	margin: -20px 0 50px;
+	margin: -30px 0 50px;
 }
 
 h1 {
@@ -84,8 +84,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #3c97bf;
+	background-color: #3c97bf;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -198,9 +198,9 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #4837cc;
+	background: -webkit-linear-gradient(to right, #4837cc, #1477ad);
+	background: linear-gradient(to right, #4837cc, #1477ad);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -281,7 +281,7 @@ footer p {
 }
 
 footer i {
-    color: red;
+    color: #3c97bf;
 }
 
 footer a {
@@ -291,16 +291,9 @@ footer a {
 #root {
   width: 100%;
   height: 100%;
-  margin-top: 30px;
+	background-color:#f6f5f7;
 }
 
-.chat-container {
-  height: 100vh;
-}
-
-.message-container {
-  height: 95vh;
-}
 
 /* This is compiled SCSS */
 
@@ -320,149 +313,167 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 2;
   color: #000408;
+  background-color: #f6f5f7;
 }
 
-.message-sent,
-.message-received {
-  clear: both;
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { 
+	transform: scale(1.03);
+	cursor: pointer;
 }
 
-.message-sent::before,
-.message-received::before,
-.message-sent::after,
-.message-received::after {
-  content: '';
-  display: table;
+.linkto {
+
+}
+.linkto:hover { 
+	cursor: pointer;
 }
 
-.center {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
+.onlygrow { transition: all .2s ease-in-out; }
+.onlygrow:hover { 
+	transform: scale(1.03);
 }
 
-[class^='grid-'] {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.large-filter {
+	display : block;
 }
 
-[class^='grid-'] {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
+@media (max-width: 991px) {
+	.large-filter {
+		display : none;
+	}
+  }
 
-.grid-message >[class^='col-'] {
-  margin-top: 1em;
-  margin-right: 1em;
-}
 
-.grid-message >[class^='col-']:nth-child(-n + 1) {
-  margin-top: 0;
-}
+  /* #home {
+	height: 100%;
+	background-image: url(./images/homebackground.png);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
 
-.grid-message >[class^='col-']:nth-child(1n) {
-  margin-right: 0;
-}
+  /* html {
+	height: 100%;
+	background-image: url(./images/homebackground.png);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
+  .sticky-nav {
+	position: sticky;
+	z-index: 1000;
+	top: 0;
+  }
+  #chevron {
+	position: relative;
+	text-align: center;
+	margin-bottom: 150px;
+	height: 300px;
+	width: 100%;
+	stroke: black;
+  }
+  #chevron:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 50%;
+	background: #1477AD;
+	transform: skew(0deg, 15deg);
+  }
+  #chevron:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 50%;
+	background: #1477AD;
+	transform: skew(0deg, -15deg);
+  }
 
-.col-message-sent {
-  margin-left: calc(8.33333333% + 0.08333333em) !important;
-}
 
-.col-message-received {
-  margin-right: calc(8.33333333% + 0.08333333em) !important;
-}
+  .link{
+	  font-size: 17px;
+	  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
 
-.col-message-sent,
-.col-message-received {
-  width: calc(91.66666667% - 0.08235677em);
-}
+  #svglogo {
+	  position: absolute;
+	  width: 350;
+	  height: 150;
+	  top:90px;
+	  right:40%;
+	  z-index: 10;
+  }
 
-.message-sent,
-.message-received {
-  margin-top: 0.0625em;
-  margin-bottom: 0.0625em;
-  padding: 0.25em 1em;
-  width: 50vh;
-}
 
-.message-sent p,
-.message-received p {
-  margin: 0;
-  line-height: 1.5;
-}
+  
 
-.message-sent {
-  float: right;
-  color: white;
-  width: 45%;
-  background-color: dodgerblue;
-  border-radius: 1em 0.25em 0.25em 1em;
-}
+ 
 
-.message-sent:first-child {
-  border-radius: 1em 1em 0.25em 1em;
-}
+  @media (max-width: 1235px) {
+	#svglogo {
+	  right: 37%;
+	}
+	#map  {
+		width: 100%;
+	}
+  }
 
-.message-sent:last-child {
-  border-radius: 1em 0.25em 1em 1em;
-}
+  @media (max-width: 1118px) {
+	
+	#map  {
+		width: 100%;
+	}
+  }
 
-.message-sent:only-child {
-  border-radius: 1em;
-}
+  @media (max-width: 992px) {
+	#thercard {
+		margin-top: 25px;
+	}
+	#map  {
+		width: 100%;
+	}
+  }
 
-.message-received {
-  float: left;
-  color: black;
-  width: 45%;
-  background-color: lightgray;
-  border-radius: 0.25em 1em 1em 0.25em;
-}
+  @media (max-width: 900px) {
+	#svglogo {
+	  right: 34%;
+	}
+	#map  {
+		width: 100%;
+	}
+  }
 
-.message-received:first-child {
-  border-radius: 1em 1em 1em 0.25em;
-}
+  @media (max-width: 850px) {
+	#svglogo {
+	  right: 30%;
+	}
+	#map  {
+		width: 100%;
+	}
+  }
 
-.message-received:last-child {
-  border-radius: 0.25em 1em 1em 1em;
-}
 
-.message-received:only-child {
-  border-radius: 1em;
-}
+  @media (max-width: 800px) {
+	.cardtext{
+		font-size: 10px;
+	}
+	#svglogo {
+		right: 23%;
+	  }
+	  #map  {
+		width: 100%;
+	}
+	
+  }
 
-.message-box {
-  margin-top: 1em;
-  padding: 1em 0.5em;
-  border-top-width: 0.0625em;
-  border-style: solid;
-  border-color: lightgray;
-  color: darkgray;
-}
-
-.message-box p {
-  margin: 0;
-  line-height: 1.5;
-}
-
-.col-message-sent {
-  margin-top: 0.25em !important;
-}
-
-.col-message-received {
-  margin-top: 0.25em !important;
-}
-
-.message {
-  height: 90vh;
-  width: 100%;
-  /* !!!!!!!!!! COMMENT OUT THIS LINE TO MAKE IT FULL WIDTH !!!!!!!!!! */
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
+  @media (max-width: 700px) {
+	#map  {
+		width: 100%;
+	}
+  }
